@@ -1,0 +1,15 @@
+.footer {
+  width: 100%;
+  max-width: 1600px;
+  background-color: black;
+  color: white;
+  margin: 20px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .fText {
+    font-size: 20px;
+  }
+}

@@ -1,47 +1,59 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./header.css";
+import "./header.scss";
 import jsCookie from "js-cookie";
 import {
   faBed,
-  faCalendarDays,
-  faCar,
-  faP,
-  faPerson,
   faPlane,
-  faTaxi,
+  faUtensils,
+  faCircleInfo,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Header = () => {
   const user = JSON.parse(localStorage.getItem("user"));
-  console.log(user);
+  const [header, setHeader] = useState("");
+  const scrollEvent = (e) => {
+    if (window.scrollY < 73) {
+      return setHeader("");
+    } else if (window.scrollY > 70) {
+      return setHeader("scroll-color");
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrollEvent);
+    return () => window.removeEventListener("scroll", scrollEvent);
+  }, []);
+
   return (
-    <div className="header">
+    <div className={`header ${header}`}>
       <div className="headerContainer">
         <Link to="/">
           <span className="logo">Flash Booking</span>
         </Link>
         <div className="headerList">
+          <Link to="/rooms">
+            <div className="headerListItem">
+              <FontAwesomeIcon icon={faBed} />
+              <span>Rooms</span>
+            </div>
+          </Link>
           <div className="headerListItem">
-            <FontAwesomeIcon icon={faBed} />
-            <span>Stays</span>
+            <FontAwesomeIcon icon={faUtensils} />
+
+            <span>Dining</span>
           </div>
           <div className="headerListItem">
             <FontAwesomeIcon icon={faPlane} />
 
-            <span>Flights</span>
-          </div>
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faCar} />
-
-            <span>Cars</span>
+            <span>Tours</span>
           </div>
 
           <div className="headerListItem">
-            <FontAwesomeIcon icon={faTaxi} />
+            <FontAwesomeIcon icon={faCircleInfo} />
 
-            <span>Airport Taxis</span>
+            <span>About</span>
           </div>
         </div>
         <div className="headerItem">

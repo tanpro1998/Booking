@@ -1,5 +1,5 @@
 import React from "react";
-import "./mail.css";
+import "./mail.scss";
 
 const Mail = () => {
   return (

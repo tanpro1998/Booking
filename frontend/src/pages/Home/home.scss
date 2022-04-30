@@ -1,0 +1,20 @@
+.home {
+  .topBg {
+    background-image: url("https://vietnamdiscovery.com/wp-content/uploads/2021/08/vietnam-discovery-2-scaled.jpg");
+    background-size: cover;
+    height: 500px;
+  }
+
+  .container {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+
+    .title {
+      width: 1600px;
+      font-size: 30px;
+    }
+  }
+}

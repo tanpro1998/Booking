@@ -1,6 +1,7 @@
 import { message } from "antd";
-import { publicRequest } from "../Utils/axiosInstance";
+import { publicRequest, roomRequest } from "../Utils/axiosInstance";
 import jsCookie from "js-cookie";
+import { allRooms } from "../Redux/reducers/roomSlice";
 
 export const userRegister = (reqObj) => async () => {
   try {
@@ -29,5 +30,14 @@ export const userLogin = (reqObj) => async () => {
   } catch (err) {
     console.log(err);
     message.error("Wrong username or password");
+  }
+};
+
+export const getAllRooms = () => async (dispatch) => {
+  try {
+    const res = await roomRequest.get("/rooms");
+    dispatch(allRooms(res.data));
+  } catch (err) {
+    console.log(err);
   }
 };

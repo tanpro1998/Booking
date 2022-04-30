@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "../../components/Header/Header";
 import Navbar from "../../components/Navbar/Navbar";
-import "./list.css";
+import "./list.scss";
 import { DateRange } from "react-date-range";
 import { useLocation } from "react-router-dom";
 import { format } from "date-fns";

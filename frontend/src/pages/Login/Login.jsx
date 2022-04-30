@@ -1,5 +1,5 @@
 import React from "react";
-import "../Register/register.css";
+import "../Register/register.scss";
 import { Form, Input, Button } from "antd";
 import { useDispatch } from "react-redux";
 import { userLogin } from "../../Redux/API";

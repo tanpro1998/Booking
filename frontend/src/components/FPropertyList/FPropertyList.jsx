@@ -12,11 +12,6 @@ const FPropertyList = () => {
         />
         <span className="fPTitle">JW Marriott Hotel</span>
         <span className="fPLocation">Ha Noi</span>
-        <span className="fPDesc">Starting from $200</span>
-        <div className="fPRating">
-          <button className="fPButton">8.0</button>
-          Excellent
-        </div>
       </div>
       <div className="fPItem">
         <img
@@ -26,11 +21,6 @@ const FPropertyList = () => {
         />
         <span className="fPTitle">Amanoi Resort</span>
         <span className="fPLocation">Ninh Thuan</span>
-        <span className="fPDesc">Starting from $200</span>
-        <div className="fPRating">
-          <button className="fPButton">8.0</button>
-          Excellent
-        </div>
       </div>
       <div className="fPItem">
         <img
@@ -40,11 +30,6 @@ const FPropertyList = () => {
         />
         <span className="fPTitle">Sunshine City Sai Gon</span>
         <span className="fPLocation">Ho Chi Minh</span>
-        <span className="fPDesc">Starting from $200</span>
-        <div className="fPRating">
-          <button className="fPButton">8.0</button>
-          Excellent
-        </div>
       </div>
       <div className="fPItem">
         <img
@@ -54,11 +39,6 @@ const FPropertyList = () => {
         />
         <span className="fPTitle">Homestay Reply 1994</span>
         <span className="fPLocation">Da Lat</span>
-        <span className="fPDesc">Starting from $200</span>
-        <div className="fPRating">
-          <button className="fPButton">8.0</button>
-          Excellent
-        </div>
       </div>
     </div>
   );

@@ -1,0 +1,61 @@
+.header {
+  height: 70px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  top: 0;
+  transition: all 0.3s ease-out;
+
+  &:hover {
+    background-color: #1789ff;
+  }
+
+  .headerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1024px;
+
+    .logo {
+      font-size: 30px;
+      color: white;
+    }
+
+    .headerList {
+      display: flex;
+      gap: 40px;
+
+      .headerListItem {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        color: white;
+      }
+    }
+
+    .headerButton {
+      margin-left: 20px;
+      padding: 5px 10px;
+      background-color: white;
+      border: none;
+      color: #1789ff;
+      cursor: pointer;
+    }
+
+    .headerUser {
+      margin-left: 10px;
+      color: white;
+      font-size: 12px;
+    }
+  }
+}
+
+.scroll-color {
+  background-color: #1789ff;
+}
