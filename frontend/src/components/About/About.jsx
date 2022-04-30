@@ -53,10 +53,7 @@ const About = () => {
                 delightfully textured, bright and piquant flavours. The
                 Vietnamese love their food and cooks make the most of each
                 region's abundance produce and special ingredients to make their
-                meals. Northern food is known for its simplicity; the dishes of
-                central Vietnam are generous in spice and quantity; Southerners
-                like to add sugar. Wherever you travel across the country,
-                you're sure to eat well.
+                meals.
               </p>
               <Link to="/dining">
                 <button className="btn">Discover More</button>

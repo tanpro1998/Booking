@@ -45,7 +45,7 @@ const Navbar = ({ type }) => {
     });
   };
   const handleSearch = () => {
-    navigate("/hotels", { state: { destination, date, options } });
+    navigate("/rooms", { state: { destination, date, options } });
   };
   return (
     <div className="navbar">

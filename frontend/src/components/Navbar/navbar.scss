@@ -32,10 +32,11 @@
       color: black;
       margin-top: 50px;
       position: absolute;
-      bottom: -120px;
+      bottom: -100px;
       width: 100%;
       max-width: 1015px;
       padding: 10px 0;
+      z-index: 1;
 
       .navbarSearchItem {
         display: flex;
@@ -66,7 +67,7 @@
         .options {
           z-index: 2;
           position: absolute;
-          top: 50px;
+          bottom: -100px;
           background-color: white;
           color: gray;
           border-radius: 5px;

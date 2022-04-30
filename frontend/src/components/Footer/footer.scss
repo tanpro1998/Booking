@@ -1,15 +1,19 @@
-.footer {
-  width: 100%;
-  max-width: 1600px;
-  background-color: black;
-  color: white;
-  margin: 20px;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.f {
+  padding-bottom: .5rem;
+  .footer {
+    width: 100%;
+    height: 100%;
+    max-width: 1600px;
+    background-color: black;
+    color: white;
+    margin: 2rem auto;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  .fText {
-    font-size: 20px;
+    .fText {
+      font-size: 20px;
+    }
   }
 }

@@ -1,26 +1,32 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import BookingWidget from "../../components/Booking/BookingWidget";
 import "./room.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllRooms } from "../../Redux/API";
 import { Link, useLocation } from "react-router-dom";
-import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
+
 const Room = () => {
   const dispatch = useDispatch();
   const location = useLocation();
 
+  const [destination, setDestination] = useState(location.state.destination);
+  const [date, setDate] = useState(location.state.date);
+  const [options, setOptions] = useState(location.state.options);
+
   useEffect(() => {
     dispatch(getAllRooms());
   }, [dispatch]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const { rooms } = useSelector((state) => state.rooms);
   return (
     <div className="r">
-      <Header />
       <div className="rooms">
         <header className="header-main">
           <img
-            src="/image/room/room-header1.jpg"
+            src={"/image/room/room-header1.jpg"}
             alt=""
             className="header-img"
           />
@@ -31,7 +37,11 @@ const Room = () => {
               and exclusive amenities
             </p>
           </div>
-          <BookingWidget className="header-widget" />
+          <BookingWidget
+            date={date}
+            destination={destination}
+            options={options}
+          />
         </header>
         <section className="header-desc">
           <h1 className="alt-font">Be Captivated</h1>
@@ -74,7 +84,6 @@ const Room = () => {
           )}
         </section>
       </div>
-      <Footer />
     </div>
   );
 };

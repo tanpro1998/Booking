@@ -16,7 +16,6 @@ const Home = () => {
   return (
     <div className="home">
       <div className="topBg">
-        <Header />
         <Navbar />
       </div>
       <div className="container">
@@ -27,7 +26,6 @@ const Home = () => {
         <FPropertyList />
         <About />
         <Mail />
-        <Footer />
       </div>
     </div>
   );

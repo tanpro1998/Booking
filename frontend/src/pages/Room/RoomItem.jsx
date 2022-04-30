@@ -20,9 +20,9 @@ const RoomItem = () => {
       setRoom(rooms.find((r) => r.url === roomSlug));
     }
   }, [rooms, roomSlug]);
+  console.log(room);
   return (
     <div className="r">
-      <Header />
       <div className="rI">
         <header className="header-main">
           <img
@@ -37,7 +37,6 @@ const RoomItem = () => {
           <BookingWidget />
         </header>
       </div>
-      <Footer />
     </div>
   );
 };

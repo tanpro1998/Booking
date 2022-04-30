@@ -17,22 +17,13 @@ import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { format } from "date-fns";
 
-const BookingWidget = () => {
+const BookingWidget = (props) => {
   const [openDate, setOpenDate] = useState(false);
-  const [date, setDate] = useState([
-    {
-      startDate: new Date(),
-      endDate: new Date(),
-      key: "selection",
-    },
-  ]);
+  const [date, setDate] = useState(props.date);
+  console.log(date);
 
   const [openOptions, setOpenOptions] = useState(false);
-  const [options, setOptions] = useState({
-    adult: 1,
-    children: 0,
-    room: 1,
-  });
+  const [options, setOptions] = useState(props.options);
   const [destination, setDestination] = useState("");
 
   const navigate = useNavigate();
@@ -45,9 +36,7 @@ const BookingWidget = () => {
       };
     });
   };
-  const handleSearch = () => {
-    navigate("/hotels", { state: { destination, date, options } });
-  };
+
   return (
     <div className="bW">
       <div className="navbarSearch">
@@ -55,9 +44,9 @@ const BookingWidget = () => {
           <FontAwesomeIcon icon={faBed} className="navbarIcon" />
           <input
             type="text"
-            placeholder="Where are you going?"
+            placeholder={props.destination}
             className="navbarSearchInput"
-            onChange={(e) => setDestination(e.target.value)}
+            // onChange={(e) => setDestination(e.target.value)}
           />
         </div>
         <div className="navbarSearchItem">
@@ -66,17 +55,14 @@ const BookingWidget = () => {
             className="navbarSearchText"
             onClick={() => setOpenDate(!openDate)}
           >
-            {`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(
-              date[0].endDate,
+            {`${format(props.date[0].startDate, "MM/dd/yyyy")} to ${format(
+              props.date[0].endDate,
               "MM/dd/yyyy"
             )}`}
           </span>
           {openDate && (
             <DateRange
-              editableDateInputs={true}
-              moveRangeOnFirstSelection={false}
               ranges={date}
-              className="date"
               minDate={new Date()}
               onChange={(item) => setDate([item.selection])}
             />
@@ -87,7 +73,7 @@ const BookingWidget = () => {
           <span
             onClick={() => setOpenOptions(!openOptions)}
             className="navbarSearchText"
-          >{`${options.adult} adult · ${options.children} children · ${options.room} room`}</span>
+          >{`${props.options.adult} adult · ${props.options.children} children · ${props.options.room} room`}</span>
           {openOptions && (
             <div className="options">
               <div className="optionItem">
@@ -153,9 +139,7 @@ const BookingWidget = () => {
           )}
         </div>
         <div className="navbarSearchItem">
-          <button className="navbarButton" onClick={handleSearch}>
-            Search
-          </button>
+          <button className="navbarButton">Search</button>
         </div>
       </div>
     </div>
