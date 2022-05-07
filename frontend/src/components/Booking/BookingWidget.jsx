@@ -1,147 +1,131 @@
 import React, { useState } from "react";
 import "./bookingWidget.scss";
 
-import {
-  faBed,
-  faCalendarDays,
-  faCar,
-  faP,
-  faPerson,
-  faPlane,
-  faTaxi,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useNavigate } from "react-router-dom";
-import { DateRange } from "react-date-range";
-import "react-date-range/dist/styles.css";
-import "react-date-range/dist/theme/default.css";
-import { format } from "date-fns";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const BookingWidget = (props) => {
-  const [openDate, setOpenDate] = useState(false);
-  const [date, setDate] = useState(props.date);
-  console.log(date);
+import { addDays } from "date-fns";
+import { useDispatch } from "react-redux";
+import { getAllAvailable, BookingDetails } from "../../Redux/API";
+import { TextField } from "@material-ui/core";
+import { DateRangePicker, LocalizationProvider } from "@material-ui/lab";
+import AdapterDateFns from "@material-ui/lab/AdapterDateFns";
+import Box from "@mui/material/Box";
+import { addWeeks } from "date-fns/esm";
 
-  const [openOptions, setOpenOptions] = useState(false);
-  const [options, setOptions] = useState(props.options);
-  const [destination, setDestination] = useState("");
-
+const BookingWidget = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location)
+  const [formData, setFormData] = useState({
+    dates: [new Date(), addDays(new Date(), 7)],
+    adults: 1,
+    children: 0,
+  });
 
-  const handleOption = (name, operation) => {
-    setOptions((prev) => {
-      return {
-        ...prev,
-        [name]: operation === "i" ? options[name] + 1 : options[name] - 1,
-      };
-    });
+  const getWeeksAfter = (date, amount) => {
+    return date ? addWeeks(date, amount) : undefined;
+  };
+
+  const updateAdults = (val) => {
+    if (formData.adults === 1 && val === -1) return;
+    if (formData.adults === 5 && val === 1) return;
+    setFormData({ ...formData, adults: formData.adults + val });
+  };
+
+  const updateChildren = (val) => {
+    if (formData.children === 0 && val === -1) return;
+    if (formData.children === 5 && val === 1) return;
+    setFormData({ ...formData, children: formData.children + val });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { adults, children, dates } = formData;
+    if (location.pathname !== "/booking") {
+      navigate("/booking");
+    }
+    dispatch(getAllAvailable({ adults, children, dates }));
+    dispatch(BookingDetails({ adults, children, dates }));
   };
 
   return (
     <div className="bW">
-      <div className="navbarSearch">
-        <div className="navbarSearchItem">
-          <FontAwesomeIcon icon={faBed} className="navbarIcon" />
-          <input
-            type="text"
-            placeholder={props.destination}
-            className="navbarSearchInput"
-            // onChange={(e) => setDestination(e.target.value)}
-          />
-        </div>
-        <div className="navbarSearchItem">
-          <FontAwesomeIcon icon={faCalendarDays} className="navbarIcon" />
-          <span
-            className="navbarSearchText"
-            onClick={() => setOpenDate(!openDate)}
-          >
-            {`${format(props.date[0].startDate, "MM/dd/yyyy")} to ${format(
-              props.date[0].endDate,
-              "MM/dd/yyyy"
-            )}`}
-          </span>
-          {openDate && (
-            <DateRange
-              ranges={date}
-              minDate={new Date()}
-              onChange={(item) => setDate([item.selection])}
+      <form onSubmit={handleSubmit}>
+        <div className="date">
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <DateRangePicker
+              disablePast
+              maxDate={getWeeksAfter(formData.dates[0], 4)}
+              startText="From"
+              endText="To"
+              value={formData.dates}
+              onChange={(newValue) => {
+                if (!newValue.includes(null)) {
+                  setFormData({
+                    ...formData,
+                    dates: newValue,
+                  });
+                }
+              }}
+              renderInput={(start, end) => (
+                <React.Fragment>
+                  <TextField {...start} />
+                  <Box sx={{ mx: 2 }}> to </Box>
+                  <TextField {...end} />
+                </React.Fragment>
+              )}
             />
-          )}
+          </LocalizationProvider>
         </div>
-        <div className="navbarSearchItem">
-          <FontAwesomeIcon icon={faPerson} className="navbarIcon" />
-          <span
-            onClick={() => setOpenOptions(!openOptions)}
-            className="navbarSearchText"
-          >{`${props.options.adult} adult · ${props.options.children} children · ${props.options.room} room`}</span>
-          {openOptions && (
-            <div className="options">
-              <div className="optionItem">
-                <span className="optionText">Adult</span>
-                <div className="optionCounter">
-                  <button
-                    disabled={options.adult <= 1}
-                    className="optionCounterButton"
-                    onClick={() => handleOption("adult", "d")}
-                  >
-                    -
-                  </button>
-                  <span className="optionCounterNumber">{options.adult}</span>
-                  <button
-                    className="optionCounterButton"
-                    onClick={() => handleOption("adult", "i")}
-                  >
-                    +
-                  </button>
-                </div>
+        <div className="guest">
+          <div className="adults">
+            <label>Adults</label>
+            <div className="guest-select">
+              <div
+                className="btn-sm"
+                name="adults"
+                onClick={() => updateAdults(-1)}
+              >
+                <i className="fas fa-minus"></i>
               </div>
-              <div className="optionItem">
-                <span className="optionText">Children</span>
-                <div className="optionCounter">
-                  <button
-                    disabled={options.children <= 0}
-                    className="optionCounterButton"
-                    onClick={() => handleOption("children", "d")}
-                  >
-                    -
-                  </button>
-                  <span className="optionCounterNumber">
-                    {options.children}
-                  </span>
-                  <button
-                    className="optionCounterButton"
-                    onClick={() => handleOption("children", "i")}
-                  >
-                    +
-                  </button>
-                </div>
-              </div>
-              <div className="optionItem">
-                <span className="optionText">Room</span>
-                <div className="optionCounter">
-                  <button
-                    disabled={options.room <= 1}
-                    className="optionCounterButton"
-                    onClick={() => handleOption("room", "d")}
-                  >
-                    -
-                  </button>
-                  <span className="optionCounterNumber">{options.room}</span>
-                  <button
-                    className="optionCounterButton"
-                    onClick={() => handleOption("room", "i")}
-                  >
-                    +
-                  </button>
-                </div>
+              <span>{formData.adults}</span>
+              <div
+                className="btn-sm"
+                name="adults"
+                onClick={() => updateAdults(1)}
+              >
+                <i className="fas fa-plus"></i>
               </div>
             </div>
-          )}
+          </div>
+          <div className="children">
+            <label>Children</label>
+            <div className="guest-select">
+              <div
+                className="btn-sm "
+                name="children"
+                onClick={() => {
+                  updateChildren(-1);
+                }}
+              >
+                <i className="fas fa-minus"></i>
+              </div>
+              <span>{formData.children}</span>
+              <div
+                className="btn-sm"
+                name="children"
+                onClick={() => {
+                  updateChildren(1);
+                }}
+              >
+                <i className="fas fa-plus"></i>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="navbarSearchItem">
-          <button className="navbarButton">Search</button>
-        </div>
-      </div>
+        <button className="btn">Check</button>
+      </form>
     </div>
   );
 };

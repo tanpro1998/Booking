@@ -10,9 +10,12 @@ const roomSlice = createSlice({
     allRooms: (state, action) => {
       state.rooms = action.payload;
     },
+    oneRoom: (state, action) => {
+      state.room = action.payload;
+    },
   },
 });
 
-export const { allRooms } = roomSlice.actions;
+export const { allRooms, oneRoom } = roomSlice.actions;
 
 export default roomSlice.reducer;

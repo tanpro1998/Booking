@@ -1,93 +1,89 @@
 .bW {
-  width: 100%;
+  width: 80%;
+  background-color: white;
   position: absolute;
-  bottom: -5rem;
-  z-index: 999;
-  .navbarSearch {
+  top: 80%;
+  -webkit-box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.2);
+
+  padding: 2rem 0;
+  z-index: 10;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all ease 200ms;
+  z-index: 99;
+
+  form {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    gap: 40px;
-    border: 3px solid teal;
-    background-color: white;
-    color: black;
-    max-width: 1600px;
-    padding: 10px 0;
-    margin: 50px auto;
-    position: relative;
+    justify-content: space-between;
+    margin: 0 3rem;
 
-    .navbarSearchItem {
+    .date {
       display: flex;
-      align-items: center;
-      gap: 10px;
 
-      .navbarIcon {
-        color: gray;
-      }
+      div {
+        :hover {
+          cursor: pointer;
+        }
 
-      .navbarSearchInput {
-        border: none;
-        outline: none;
-        padding: 10px;
-      }
+        label {
+          display: inline-block;
+        }
 
-      .navbarSearchText {
-        color: gray;
-        cursor: pointer;
-
-        .date {
-          position: absolute;
-          top: 50px;
-          z-index: 2;
+        span {
+          padding: 0 1rem;
         }
       }
+    }
 
-      .options {
-        z-index: 2;
-        position: absolute;
-        top: 120px;
-        background-color: white;
-        color: gray;
-        border-radius: 5px;
-        -webkit-box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
-        box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
+    .guest {
+      display: flex;
+      transform: translateY(-10px);
 
-        .optionItem {
-          width: 200px;
-          display: flex;
-          justify-content: space-between;
-          margin: 10px;
+      .adults {
+        margin-right: 5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
 
-          .optionCounter {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 12px;
-            color: black;
+      .children {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .guest-select {
+        display: flex;
+        margin-top: 10px;
+        align-items: center;
 
-            .optionCounterButton {
-              width: 30px;
-              height: 30px;
-              border: 1px solid #1789ff;
-              color: #1789ff;
-              cursor: pointer;
-              background-color: white;
+        span {
+          padding: 0 2rem;
+        }
 
-              &:disabled {
-                cursor: not-allowed;
-              }
-            }
+        .btn-sm {
+          i {
+            padding: 5px;
+            border: 1px solid black;
+            cursor: pointer;
           }
         }
       }
+    }
 
-      .navbarButton {
-        padding: 10px;
-        background-color: #5da5f1;
-        border: none;
-        color: white;
-        cursor: pointer;
-        font-weight: 600;
+    .btn {
+      padding: 5px 15px;
+      border-color: #1789ff;
+      background-color: #1789ff;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        background-color: transparent;
+        color: #1789ff;
       }
     }
   }

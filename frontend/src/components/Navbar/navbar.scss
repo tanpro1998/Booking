@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   position: relative;
-  color: white;
   height: 400px;
 
   .navbarContainer {
@@ -15,102 +14,15 @@
 
       .navbarTitle {
         color: white;
+        font-size: 40px;
+        text-align: center;
       }
 
       .navbarDesc {
         margin: 20px 0;
-      }
-    }
-
-    .navbarSearch {
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      gap: 40px;
-      border: 3px solid teal;
-      background-color: white;
-      color: black;
-      margin-top: 50px;
-      position: absolute;
-      bottom: -100px;
-      width: 100%;
-      max-width: 1015px;
-      padding: 10px 0;
-      z-index: 1;
-
-      .navbarSearchItem {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-
-        .navbarIcon {
-          color: gray;
-        }
-
-        .navbarSearchInput {
-          border: none;
-          outline: none;
-          padding: 10px;
-        }
-
-        .navbarSearchText {
-          color: gray;
-          cursor: pointer;
-
-          .date {
-            position: absolute;
-            top: 50px;
-            z-index: 2;
-          }
-        }
-
-        .options {
-          z-index: 2;
-          position: absolute;
-          bottom: -100px;
-          background-color: white;
-          color: gray;
-          border-radius: 5px;
-          -webkit-box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
-          box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
-
-          .optionItem {
-            width: 200px;
-            display: flex;
-            justify-content: space-between;
-            margin: 10px;
-
-            .optionCounter {
-              display: flex;
-              align-items: center;
-              gap: 10px;
-              font-size: 12px;
-              color: black;
-
-              .optionCounterButton {
-                width: 30px;
-                height: 30px;
-                border: 1px solid #1789ff;
-                color: #1789ff;
-                cursor: pointer;
-                background-color: white;
-
-                &:disabled {
-                  cursor: not-allowed;
-                }
-              }
-            }
-          }
-        }
-
-        .navbarButton {
-          padding: 10px;
-          background-color: #5da5f1;
-          border: none;
-          color: white;
-          cursor: pointer;
-          font-weight: 600;
-        }
+        color: white;
+        font-size: 16px;
+        line-height: 1.6;
       }
     }
   }

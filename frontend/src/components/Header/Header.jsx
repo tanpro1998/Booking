@@ -39,22 +39,24 @@ const Header = () => {
               <span>Rooms</span>
             </div>
           </Link>
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faUtensils} />
-
-            <span>Dining</span>
-          </div>
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faPlane} />
-
-            <span>Tours</span>
-          </div>
-
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faCircleInfo} />
-
-            <span>About</span>
-          </div>
+          <Link to="/dining">
+            <div className="headerListItem">
+              <FontAwesomeIcon icon={faUtensils} />
+              <span>Dining</span>
+            </div>
+          </Link>
+          <Link to="/tours">
+            <div className="headerListItem">
+              <FontAwesomeIcon icon={faPlane} />
+              <span>Tours</span>
+            </div>
+          </Link>
+          <Link to="/about">
+            <div className="headerListItem">
+              <FontAwesomeIcon icon={faCircleInfo} />
+              <span>About</span>
+            </div>
+          </Link>
         </div>
         <div className="headerItem">
           {user ? (

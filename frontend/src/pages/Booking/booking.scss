@@ -1,0 +1,37 @@
+.ready {
+  text-align: center;
+  margin-top: 5rem;
+  line-height: 2;
+  display: flex;
+  flex-direction: column;
+
+  label {
+      margin-bottom: 1rem;
+  }
+
+  form {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+
+      input {
+          width: 300px;
+          padding: 10px;
+          margin-right: 10px;
+          outline: none;
+      }
+
+      button {
+          width: 80px;
+          background-color: transparent;
+          cursor: pointer;
+          font-size: 18px;
+      }
+  }
+}
+
+.desc {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 5rem;
+}

@@ -29,7 +29,7 @@ const About = () => {
           </p>
           {/* <h2>RESORT OPEN</h2> */}
           <Link to="/rooms">
-            <button className="btn">Discover More</button>
+            <button className="btn" style={{cursor: "pointer"}}>Discover More</button>
           </Link>
         </article>
         <div className="mainRight">

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import BookingWidget from "../../components/Booking/BookingWidget";
 import "./room.scss";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,19 +8,15 @@ import { Link, useLocation } from "react-router-dom";
 const Room = () => {
   const dispatch = useDispatch();
   const location = useLocation();
-
-  const [destination, setDestination] = useState(location.state.destination);
-  const [date, setDate] = useState(location.state.date);
-  const [options, setOptions] = useState(location.state.options);
+  const { rooms } = useSelector((state) => state.rooms);
 
   useEffect(() => {
     dispatch(getAllRooms());
-  }, [dispatch]);
+  }, [location, dispatch]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const { rooms } = useSelector((state) => state.rooms);
   return (
     <div className="r">
       <div className="rooms">
@@ -37,11 +33,7 @@ const Room = () => {
               and exclusive amenities
             </p>
           </div>
-          <BookingWidget
-            date={date}
-            destination={destination}
-            options={options}
-          />
+          <BookingWidget />
         </header>
         <section className="header-desc">
           <h1 className="alt-font">Be Captivated</h1>
