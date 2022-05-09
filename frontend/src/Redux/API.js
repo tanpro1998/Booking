@@ -39,7 +39,7 @@ export const userLogin = (reqObj) => async () => {
 
 export const getAllRooms = () => async (dispatch) => {
   try {
-    const res = await roomRequest.get("/rooms");
+    const res = await publicRequest.get("/rooms");
     dispatch(allRooms(res.data));
   } catch (err) {
     console.log(err);

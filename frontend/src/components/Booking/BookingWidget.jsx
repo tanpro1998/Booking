@@ -16,7 +16,6 @@ const BookingWidget = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location)
   const [formData, setFormData] = useState({
     dates: [new Date(), addDays(new Date(), 7)],
     adults: 1,

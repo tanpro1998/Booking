@@ -26,7 +26,6 @@ const RoomItem = () => {
   const handleShow = () => {
     show === 4 ? setShow(room.amenities.length) : setShow(4);
   };
-  console.log(rooms);
   return (
     <div className="r">
       <div className="rI">

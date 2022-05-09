@@ -119,6 +119,13 @@
   }
 }
 
+.desc {
+  .btn {
+    font-size: 20px;
+    cursor: pointer;
+  }
+}
+
 @keyframes lds-roller {
   0% {
     transform: rotate(0deg);

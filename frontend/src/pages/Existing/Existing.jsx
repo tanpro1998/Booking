@@ -10,6 +10,7 @@ const Existing = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const existing = useSelector((state) => state.existing.booking);
+  console.log(existing);  
   const [loading, setLoading] = useState(true);
 
   const handleDelete = (id) => {
@@ -18,8 +19,8 @@ const Existing = () => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 5000);
-  }, []);
+    }, 3000);
+  }, [dispatch]);
   return (
     <div className="r">
       <div className="rooms">
@@ -30,8 +31,8 @@ const Existing = () => {
             className="header-img"
           />
         </header>
-        {existing?.length > 0 ? (
-          existing?.map((inf) => (
+        {existing.length > 0 ? (
+          existing.map((inf) => (
             <div className="card" key="">
               <div className="info">
                 <h1>Confirmation Code:</h1>
@@ -89,10 +90,7 @@ const Existing = () => {
               <div className="actions">
                 <button
                   className="delete-btn"
-                  onClick={() => [
-                    handleDelete(inf.confirmation),
-                    window.location.reload(),
-                  ]}
+                  onClick={() => [handleDelete(inf.confirmation)]}
                 >
                   DELETE
                 </button>

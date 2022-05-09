@@ -1,19 +1,27 @@
 import mongoose from "mongoose";
 
-const roomSchema = new mongoose.Schema({
-  roomid: String,
-  hotel: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "hotel_managers",
+const roomSchema = new mongoose.Schema(
+  {
+    url: String,
+    title: String,
+    titleHeader: String,
+    description: String,
+    header: String,
+    subHeader: String,
+    view: String,
+    size: String,
+    adults: Number,
+    children: Number,
+    bedding: String,
+    amenities: [String],
+    paragraph: String,
+    mainImage: String,
+    rooms: Number,
+    price: Number,
   },
-  type: String,
-  price: Number,
-  capacity: Number,
-  facilities: [String],
-  amenities: [String],
-  img: [String],
-});
+  { timestamps: true }
+);
 
-const Room = mongoose.model("Room", roomSchema);
+const Rooms = mongoose.model("Room", roomSchema);
 
-export { Room };
+export default Rooms;
