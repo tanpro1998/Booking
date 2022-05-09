@@ -1,3 +1,5 @@
+@import "../../scss/variables";
+
 .f {
   padding-bottom: .5rem;
   .footer {
@@ -5,7 +7,7 @@
     height: 100%;
     max-width: 1600px;
     background-color: black;
-    color: white;
+    color: $text-white;
     margin: 2rem auto;
     height: 100px;
     display: flex;

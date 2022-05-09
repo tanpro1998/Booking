@@ -2,8 +2,8 @@ import express from "express";
 const bookingRouter = express.Router();
 import Booking from "../models/bookingModel.js";
 import Room from "../models/roomModel.js";
-import { deleteExpiredBookings } from "./delExpiredBooking.js";
-import { randomID } from "./randomId.js";
+import { deleteExpiredBookings } from "../utils/delExpiredBooking.js";
+import { randomID } from "../utils/randomId.js";
 
 bookingRouter.get("/", async (req, res) => {
   try {

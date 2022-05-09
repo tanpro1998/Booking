@@ -1,6 +1,8 @@
+@import "../../scss/variables";
+
 .card {
   max-width: 1024px;
-  background-color: lightblue;
+  background-color: $lightblue-bg;
   margin: 2rem auto;
   .info {
     padding: 2rem 4rem;
@@ -58,7 +60,7 @@
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: black;
+    background: $black-bg;
     margin: -4px 0 0 -4px;
   }
   .lds-roller div:nth-child(1) {

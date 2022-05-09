@@ -48,7 +48,7 @@ export const getAllRooms = () => async (dispatch) => {
 
 export const getOneRooms = (url) => async (dispatch) => {
   try {
-    const res = await roomRequest.get(`/rooms/${url}`);
+    const res = await publicRequest.get(`/rooms/${url}`);
     dispatch(oneRoom(res.data));
   } catch (err) {
     console.log(err);
@@ -57,7 +57,7 @@ export const getOneRooms = (url) => async (dispatch) => {
 // Lấy thông tin booking
 export const getSingleBooking = (id) => async (dispatch) => {
   try {
-    const res = await roomRequest.post("/bookings", id);
+    const res = await publicRequest.post("/bookings", id);
     dispatch(getBooking(res.data));
   } catch (err) {
     console.log(err);
@@ -81,7 +81,7 @@ export const BookingDetails = (data) => async (dispatch) => {
 };
 export const getAllAvailable = (params) => async (dispatch) => {
   try {
-    const res = await roomRequest.post("/bookings/available", params);
+    const res = await publicRequest.post("/bookings/available", params);
     dispatch(availableBooking(res.data));
   } catch (error) {
     console.log(error);
@@ -96,7 +96,7 @@ export const createBooking = (details) => async (dispatch) => {
       ...details.details.room,
     };
 
-    const res = await roomRequest.post("/bookings/create", newBooking);
+    const res = await publicRequest.post("/bookings/create", newBooking);
     dispatch(confirm(res.data));
   } catch (err) {
     console.log(err);
@@ -105,7 +105,7 @@ export const createBooking = (details) => async (dispatch) => {
 
 export const deleteBooking = (id) => async (dispatch) => {
   try {
-    await roomRequest.post("/bookings/delete", id);
+    await publicRequest.post("/bookings/delete", id);
     dispatch(delBooking(id));
   } catch (error) {
     console.log(error);

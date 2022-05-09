@@ -1,3 +1,5 @@
+@import "../../scss/variables";
+
 .register {
   display: flex;
   flex-direction: column;
@@ -11,7 +13,7 @@
     font-weight: bold;
     letter-spacing: 5px;
     text-transform: uppercase;
-    border-bottom: 3px solid #1789ff;
+    border-bottom: 3px solid $btn-border-color;
   }
 
   .registerForm {

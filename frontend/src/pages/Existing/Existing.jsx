@@ -10,7 +10,6 @@ const Existing = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const existing = useSelector((state) => state.existing.booking);
-  console.log(existing);  
   const [loading, setLoading] = useState(true);
 
   const handleDelete = (id) => {

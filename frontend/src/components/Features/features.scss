@@ -1,3 +1,5 @@
+@import "../../scss/variables";
+
 .features {
   display: flex;
   align-items: center;
@@ -9,7 +11,7 @@
   .featuresItem {
     height: 250px;
     overflow: hidden;
-    color: white;
+    color: $text-white;
     border-radius: 10px;
     position: relative;
     flex: 1;

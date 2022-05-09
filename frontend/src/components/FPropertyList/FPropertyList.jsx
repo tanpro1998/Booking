@@ -1,5 +1,5 @@
 import React from "react";
-import "./fPropertyList.css";
+import "./fPropertyList.scss";
 
 const FPropertyList = () => {
   return (

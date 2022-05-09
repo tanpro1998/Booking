@@ -1,3 +1,5 @@
+@import "../../scss/variables";
+
 .details-code {
 
     h1 {
@@ -8,7 +10,7 @@
     }
 
     .code {
-        background-color: lightblue;
+        background-color: $lightblue-bg;
         padding: 2rem;
         display: flex;
         flex-direction: column;

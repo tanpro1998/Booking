@@ -1,3 +1,5 @@
+@import "../../scss/variables";
+
 .r {
   .rI {
     img {
@@ -20,11 +22,11 @@
         position: absolute;
         top: 20%;
         width: 100%;
-        color: white;
+        color: $text-white;
         text-align: center;
 
         .header-title {
-          color: white;
+          color: $text-white;
           font-size: 50px;
         }
 
@@ -82,11 +84,11 @@
                 justify-content: center;
                 font-weight: lighter;
                 font-size: 2rem;
-                border: 1px solid lightblue;
-                color: gray;
+                border: 1px solid $lightblue-bg;
+                color: $text-second-color;
               }
 
-              .itemShow{
+              .itemShow {
                 cursor: pointer;
               }
 
@@ -124,12 +126,12 @@
         flex-direction: column-reverse;
         flex: 1 0 40%;
         padding: 2rem;
-        background-color: lightgray;
+        background-color: $lightgray-bg;
 
         .button {
           background-color: transparent;
           border: none;
-          border-bottom: 1px solid darkblue;
+          border-bottom: 1px solid $btn-border-color;
           cursor: pointer;
         }
 

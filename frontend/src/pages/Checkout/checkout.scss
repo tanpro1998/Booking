@@ -1,9 +1,10 @@
+@import "../../scss/variables";
 .header-desc {
   font-size: 30px;
 }
 
 .room-info {
-  background-color: rgb(203, 222, 228);
+  background-color: $lightblue-bg;
   max-width: 1024px;
   margin: 2rem auto;
   padding: 2rem 10rem;

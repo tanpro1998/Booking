@@ -1,0 +1,33 @@
+.fP {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  z-index: 1;
+
+  .fPItem {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 10px;
+
+    .fPImage {
+      height: 250px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .fPTitle {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .fPLocation {
+      font-weight: 300;
+      color: gray;
+    }
+  }
+}

@@ -1,9 +1,11 @@
+@import "../../scss/variables";
+
 .pList {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: 1600px;
+  max-width: 1440px;
   z-index: 1;
   gap: 20px;
 
@@ -25,7 +27,7 @@
 
     .pListText > h4 {
       font-weight: 300;
-      color: gray;
+      color: $text-second-color;
       margin-top: -10px;
     }
   }

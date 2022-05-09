@@ -1,3 +1,5 @@
+@import "../../scss/variables";
+
 .navbar {
   display: flex;
   justify-content: center;
@@ -13,14 +15,14 @@
       margin-top: 100px;
 
       .navbarTitle {
-        color: white;
+        color: $text-white;
         font-size: 40px;
         text-align: center;
       }
 
       .navbarDesc {
         margin: 20px 0;
-        color: white;
+        color: $text-white;
         font-size: 16px;
         line-height: 1.6;
       }

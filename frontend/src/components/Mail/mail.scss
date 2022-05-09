@@ -1,7 +1,9 @@
+@import "../../scss/variables";
+
 .mail {
   width: 100%;
   height: 300px;
-  background-color: #1789ff;
+  background-color: $main-bg;
   text-align: center;
   padding: 20px;
   margin-top: 50px;
@@ -11,11 +13,11 @@
   justify-content: center;
 
   .mailTitle {
-    color: white;
+    color: $text-white;
   }
 
   .mailDesc {
-    color: white;
+    color: $text-white;
   }
 
   .mailForm {
@@ -38,12 +40,12 @@
       border: none;
       border-radius: 10px;
       background-color: #59a8fc;
-      color: white;
+      color: $text-white;
     }
   }
 
   .subscribe {
     margin: 2rem 2rem 2rem 0;
-    color: white;
+    color: $text-white;
   }
 }

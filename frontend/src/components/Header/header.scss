@@ -1,5 +1,7 @@
+@import "../../scss/variables";
+
 .header {
-  height: 70px;
+  height: $header-height;
   background-color: transparent;
   display: flex;
   align-items: center;
@@ -11,7 +13,7 @@
   transition: all 0.3s ease-out;
 
   &:hover {
-    background-color: #1789ff;
+    background-color: $main-bg;
   }
 
   .headerContainer {
@@ -24,7 +26,7 @@
     .logo {
       font-size: 30px;
       z-index: 999;
-      color: white;
+      color: $text-white;
     }
 
     .headerList {
@@ -36,29 +38,29 @@
         align-items: center;
         gap: 10px;
         cursor: pointer;
-        color: white;
+        color: $text-white;
       }
     }
 
     .headerButton {
       margin-left: 20px;
       padding: 5px 10px;
-      background-color: white;
+      background-color: $white-bg;
       border: none;
-      color: #1789ff;
+      color: $main-color;
       cursor: pointer;
     }
 
     .headerUser {
       margin-left: 10px;
-      color: white;
+      color: $text-white;
       font-size: 12px;
     }
   }
 }
 
 .scroll-color {
-  background-color: #1789ff;
-  color: white;
+  background-color: $main-bg;
+  color: $text-white;
   z-index: 997;
 }
