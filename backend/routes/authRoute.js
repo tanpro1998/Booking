@@ -4,6 +4,15 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 const authRouter = express.Router();
 
+authRouter.get("/", async (req, res) => {
+  try {
+    const users = await User.find();
+    res.status(200).json(users);
+  } catch (error) {
+    res.status(500).json(err);
+  }
+});
+
 authRouter.post("/register", async (req, res) => {
   const { name, username, password, cfPassword } = req.body;
 
