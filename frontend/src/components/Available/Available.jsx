@@ -22,7 +22,6 @@ const Available = () => {
   };
   const rawDates = details.dates[1].getTime() - details.dates[0].getTime();
   const totalNights = Math.round(rawDates / (1000 * 3600 * 24));
-  console.log(availableBookings)
   return (
     <div className="available">
       {availableBookings.length > 1 &&

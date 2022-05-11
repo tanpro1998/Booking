@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./roomItem.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getAllRooms } from "../../Redux/API";
+import { getAllRooms} from "../../Redux/API";
 import BookingWidget from "../../components/Booking/BookingWidget";
 import { displayIcon } from "../../Icons/Icons";
 const RoomItem = () => {
@@ -18,7 +18,7 @@ const RoomItem = () => {
     } else {
       setRoom(rooms.find((r) => r.url === roomSlug));
     }
-  }, [rooms, roomSlug, dispatch]);
+  }, [dispatch, rooms, roomSlug]);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

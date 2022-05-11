@@ -27,7 +27,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div className={`header ${header}`} data-testId="header-1">
+    <div className={`header ${header}`} >
       <div className="headerContainer">
         <Link to="/">
           <span className="logo">Flash Booking</span>

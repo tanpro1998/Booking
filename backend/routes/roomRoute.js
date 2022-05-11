@@ -21,7 +21,7 @@ roomRouter.get("/", async (req, res) => {
   }
 });
 
-roomRouter.post("/:id", async (req, res) => {
+roomRouter.get("/:id", async (req, res) => {
   const { id } = req.params;
   const url = id;
   try {

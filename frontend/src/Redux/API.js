@@ -46,14 +46,14 @@ export const getAllRooms = () => async (dispatch) => {
   }
 };
 
-export const getOneRooms = (url) => async (dispatch) => {
-  try {
-    const res = await roomRequest.get(`/rooms/${url}`);
-    dispatch(oneRoom(res.data));
-  } catch (err) {
-    console.log(err);
-  }
-};
+// export const getOneRooms = (url) => async (dispatch) => {
+//   try {
+//     const res = await roomRequest.get(`/rooms/${url}`);
+//     dispatch(oneRoom(res.data));
+//   } catch (err) {
+//     console.log(err);
+//   }
+// };
 // Lấy thông tin booking
 export const getSingleBooking = (id) => async (dispatch) => {
   try {
