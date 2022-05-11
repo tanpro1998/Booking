@@ -80,7 +80,6 @@ const Checkout = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  console.log(formData.phone);
 
   useEffect(() => {
     window.scrollTo(0, 0);

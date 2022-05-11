@@ -16,13 +16,13 @@ const Available = () => {
     const rawDates = details.dates[1].getTime() - details.dates[0].getTime();
     const totalNights = Math.round(rawDates / (1000 * 3600 * 24));
     const totalPrice = totalNights * price;
-    console.log(details)
 
     dispatch(RoomDetails({ title, price, totalNights, totalPrice }));
     navigate("/booking/checkout");
   };
   const rawDates = details.dates[1].getTime() - details.dates[0].getTime();
   const totalNights = Math.round(rawDates / (1000 * 3600 * 24));
+  console.log(availableBookings)
   return (
     <div className="available">
       {availableBookings.length > 1 &&
@@ -35,7 +35,7 @@ const Available = () => {
               <div className="card-info">
                 <h2 className="alt-font">{room.title}</h2>
                 <span className="location">
-                  <i className="fas fa-map-marker-alt"></i> Suay Resort, Phuket
+                  <i className="fas fa-map-marker-alt"></i> Flash Resort
                 </span>
                 <div className="details">
                   <div>

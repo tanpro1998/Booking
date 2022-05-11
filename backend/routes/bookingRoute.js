@@ -39,7 +39,6 @@ bookingRouter.post("/", async (req, res) => {
   }
 });
 
-// Create Booking
 
 bookingRouter.post("/create", async (req, res) => {
   try {
@@ -91,7 +90,6 @@ bookingRouter.post("/create", async (req, res) => {
   }
 });
 
-// Delete Booking
 bookingRouter.post("/delete", async (req, res) => {
   const { id } = req.body;
   try {

@@ -1,5 +1,5 @@
 import { message } from "antd";
-import { publicRequest, roomRequest } from "../Utils/axiosInstance";
+import { roomRequest } from "../Utils/axiosInstance";
 import jsCookie from "js-cookie";
 import { allRooms, oneRoom } from "../Redux/reducers/roomSlice";
 import { getBooking, delBooking } from "./reducers/existingSlice";
@@ -9,7 +9,7 @@ import { confirm } from "./reducers/confirmSlice";
 
 export const userRegister = (reqObj) => async () => {
   try {
-    await publicRequest.post("/auth/register", reqObj);
+    await roomRequest.post("/auth/register", reqObj);
     message.success("Register Success");
     setTimeout(() => {
       window.location.href = "/login";
@@ -22,7 +22,7 @@ export const userRegister = (reqObj) => async () => {
 
 export const userLogin = (reqObj) => async () => {
   try {
-    const res = await publicRequest.post("/auth/login", reqObj);
+    const res = await roomRequest.post("/auth/login", reqObj);
 
     localStorage.setItem("user", JSON.stringify(res.data));
     jsCookie.set("access", res.data.accessToken);
@@ -39,7 +39,7 @@ export const userLogin = (reqObj) => async () => {
 
 export const getAllRooms = () => async (dispatch) => {
   try {
-    const res = await publicRequest.get("/rooms");
+    const res = await roomRequest.get("/rooms");
     dispatch(allRooms(res.data));
   } catch (err) {
     console.log(err);
@@ -48,7 +48,7 @@ export const getAllRooms = () => async (dispatch) => {
 
 export const getOneRooms = (url) => async (dispatch) => {
   try {
-    const res = await publicRequest.get(`/rooms/${url}`);
+    const res = await roomRequest.get(`/rooms/${url}`);
     dispatch(oneRoom(res.data));
   } catch (err) {
     console.log(err);
@@ -57,7 +57,7 @@ export const getOneRooms = (url) => async (dispatch) => {
 // Lấy thông tin booking
 export const getSingleBooking = (id) => async (dispatch) => {
   try {
-    const res = await publicRequest.post("/bookings", id);
+    const res = await roomRequest.post("/bookings", id);
     dispatch(getBooking(res.data));
   } catch (err) {
     console.log(err);
@@ -81,7 +81,7 @@ export const BookingDetails = (data) => async (dispatch) => {
 };
 export const getAllAvailable = (params) => async (dispatch) => {
   try {
-    const res = await publicRequest.post("/bookings/available", params);
+    const res = await roomRequest.post("/bookings/available", params);
     dispatch(availableBooking(res.data));
   } catch (error) {
     console.log(error);
@@ -96,7 +96,7 @@ export const createBooking = (details) => async (dispatch) => {
       ...details.details.room,
     };
 
-    const res = await publicRequest.post("/bookings/create", newBooking);
+    const res = await roomRequest.post("/bookings/create", newBooking);
     dispatch(confirm(res.data));
   } catch (err) {
     console.log(err);
@@ -105,7 +105,7 @@ export const createBooking = (details) => async (dispatch) => {
 
 export const deleteBooking = (id) => async (dispatch) => {
   try {
-    await publicRequest.post("/bookings/delete", id);
+    await roomRequest.post("/bookings/delete", id);
     dispatch(delBooking(id));
   } catch (error) {
     console.log(error);

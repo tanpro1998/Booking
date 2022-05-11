@@ -4,6 +4,7 @@ import "./success.scss";
 
 const Success = () => {
   const confirm = useSelector((state) => state.confirm.confirmation);
+  console.log(confirm);
   return (
     <div className="r">
       <div className="rooms">

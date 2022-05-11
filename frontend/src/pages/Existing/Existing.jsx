@@ -18,7 +18,7 @@ const Existing = () => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 2000);
   }, [dispatch]);
   return (
     <div className="r">
@@ -89,7 +89,10 @@ const Existing = () => {
               <div className="actions">
                 <button
                   className="delete-btn"
-                  onClick={() => [handleDelete(inf.confirmation)]}
+                  onClick={() => [
+                    handleDelete(inf.confirmation),
+                    window.location.href = "/booking",
+                  ]}
                 >
                   DELETE
                 </button>

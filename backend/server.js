@@ -18,6 +18,10 @@ app.use("/api/auth", authRouter);
 app.use("/api/rooms", roomRouter);
 app.use("/api/bookings", bookingRouter);
 
+app.get("/", (req, res) => {
+  res.send("Hello to Flash API");
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

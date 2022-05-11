@@ -6,7 +6,7 @@ export const deleteExpiredBookings = async () => {
     for (let booking of bookings) {
       const endDate = new Date(booking.endDate).getTime();
       if (endDate < new Date().getTime() - 86400000) {
-        await Bookings.findOneAndDelete({ confirmation: booking.confirmation });
+        await Booking.findOneAndDelete({ confirmation: booking.confirmation });
       }
     }
     return bookings;
