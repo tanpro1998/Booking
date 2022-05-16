@@ -1,6 +1,9 @@
+@import "../../scss/mixins";
+@import "../../scss/variables";
+
 .home {
   .topBg {
-    background-image: url("https://vietnamdiscovery.com/wp-content/uploads/2021/08/vietnam-discovery-2-scaled.jpg");
+    background-image: url("https://touristjourney.com/wp-content/uploads/2020/05/Vietnam-Travel-1-e1589713772739.jpg");
     background-size: cover;
     height: 50vh;
   }
@@ -11,6 +14,10 @@
     flex-direction: column;
     align-items: center;
     gap: 30px;
+
+    @include tablet {
+      margin: 2rem auto;
+    }
 
     .title {
       width: 1440px;

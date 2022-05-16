@@ -1,4 +1,5 @@
 @import "../../scss/variables";
+@import "../../scss/mixins";
 
 .r {
   .rooms {
@@ -30,6 +31,10 @@
 
         .header-p {
           font-size: 30px;
+
+          @include tablet {
+            padding: 0 4rem;
+          }
         }
       }
     }
@@ -46,6 +51,10 @@
       flex-wrap: wrap;
       margin: 3rem auto;
       padding: 0 4rem;
+
+      @include tablet {
+        flex-direction: column;
+      }
 
       .loader {
         margin: auto;
@@ -168,6 +177,16 @@
           overflow: hidden;
           max-width: 100%;
           max-height: 80%;
+
+          @include tablet {
+            height: 50vh;
+          }
+
+          @include mobile {
+            height: 40vh;
+          }
+
+         
         }
       }
     }

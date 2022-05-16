@@ -1,8 +1,9 @@
 @import "../../scss/variables";
+@import "../../scss/mixins";
 
 .available {
   display: flex;
-  flex-direction: column;    
+  flex-direction: column;
   max-width: 1024px;
   margin: auto;
 
@@ -12,11 +13,24 @@
     margin: 1.5rem 0;
     box-shadow: $box-shadow;
     background-color: $lightblue-bg;
+
+    @include tablet {
+      margin: 2rem 2rem;
+    }
+
+    @include mobile {
+      flex-direction: column;
+    }
+
     .card-img {
       flex-basis: 30%;
 
       img {
         height: 100%;
+
+        // @include mobile {
+        //   max-height: 80%;
+        // }
       }
     }
 
@@ -85,6 +99,10 @@
         font-size: 14px;
         font-weight: bold;
         color: $text-white;
+
+        @include mobile {
+          width: 100%;
+        }
       }
     }
   }

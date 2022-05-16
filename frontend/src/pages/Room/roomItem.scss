@@ -1,5 +1,5 @@
 @import "../../scss/variables";
-
+@import "../../scss/mixins";
 .r {
   .rI {
     img {
@@ -41,12 +41,21 @@
     .header-desc {
       text-align: center;
       margin-top: 5rem;
+
+      @include tablet {
+        margin-top: 8rem;
+      }
+
     }
 
     .rIInfo {
       max-width: 1440px;
       display: flex;
       margin: 3rem auto 0 auto;
+
+      @include tablet {
+        padding: 2rem ;
+      }
 
       .left {
         flex-basis: 50%;

@@ -1,8 +1,14 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
 .header-desc {
   text-align: center;
-  margin: 5rem auto ;
+  margin: 5rem auto;
   max-width: 1440px;
-  
+
+  @include tablet {
+    padding: 0 2rem;
+  }
 }
 
 .desc_gallery {
@@ -12,12 +18,25 @@
   display: flex;
   gap: 2rem;
 
+  @include tablet {
+    flex-direction: column;
+    padding: 2rem;
+  }
+
   .descLeft {
     flex-basis: 60%;
 
     h2 {
       font-size: 3rem;
       font-weight: lighter;
+    }
+
+    .img-container {
+      img {
+        @include tablet {
+          height: 80%;
+        }
+      }
     }
   }
 

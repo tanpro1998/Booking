@@ -13,8 +13,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Header = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const [header, setHeader] = useState("");
+  const [showMenu, setShowMenu] = useState(false);
   const scrollEvent = (e) => {
-    if (window.scrollY < 73) {
+    if (window.scrollY < 70) {
       return setHeader("");
     } else if (window.scrollY > 70) {
       return setHeader("scroll-color");
@@ -27,31 +28,37 @@ const Header = () => {
   }, []);
 
   return (
-    <div className={`header ${header}`} >
+    <div className={`header ${header}`}>
+      <div className="hamburger-menu">
+        <i
+          className={`fas ${showMenu ? "fa-times" : "fa-bars"}`}
+          onClick={() => setShowMenu(!showMenu)}
+        ></i>
+      </div>
       <div className="headerContainer">
         <Link to="/">
           <span className="logo">Flash Booking</span>
         </Link>
-        <div className="headerList">
-          <Link to="/rooms">
+        <div className={`headerList ${showMenu && "show-menu"}`}>
+          <Link to="/rooms" onClick={() => setShowMenu(false)}>
             <div className="headerListItem">
               <FontAwesomeIcon icon={faBed} />
               <span>Rooms</span>
             </div>
           </Link>
-          <Link to="/dining">
+          <Link to="/dining" onClick={() => setShowMenu(false)}>
             <div className="headerListItem">
               <FontAwesomeIcon icon={faUtensils} />
               <span>Dining</span>
             </div>
           </Link>
-          <Link to="/tours">
+          <Link to="/tours" onClick={() => setShowMenu(false)}>
             <div className="headerListItem">
               <FontAwesomeIcon icon={faPlane} />
               <span>Tours</span>
             </div>
           </Link>
-          <Link to="/about">
+          <Link to="/about" onClick={() => setShowMenu(false)}>
             <div className="headerListItem">
               <FontAwesomeIcon icon={faCircleInfo} />
               <span>About</span>

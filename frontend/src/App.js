@@ -14,6 +14,7 @@ import Room from "./pages/Room/Room";
 import RoomItem from "./pages/Room/RoomItem";
 import Success from "./pages/Success/Success";
 import Tour from "./pages/Tour/Tour";
+import "./app.scss"
 function App() {
   const currentUser = JSON.parse(localStorage.getItem("user"));
   return (

@@ -1,4 +1,5 @@
 @import "../../scss/variables";
+@import "../../scss/mixins";
 
 .features {
   display: flex;
@@ -7,6 +8,14 @@
   gap: 20px;
   width: 100%;
   max-width: 1440px;
+
+  @include tablet {
+    padding: 0 2rem;
+  }
+
+  @include mobile {
+    display: none;
+  }
 
   .featuresItem {
     height: 250px;
