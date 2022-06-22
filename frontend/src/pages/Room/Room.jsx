@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import BookingWidget from "../../components/Booking/BookingWidget";
 import "./room.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllRooms } from "../../Redux/API";
+import { getAllRooms } from "../../redux/callAPI";
 import { Link, useLocation } from "react-router-dom";
 
 const Room = () => {
@@ -11,12 +11,9 @@ const Room = () => {
   const { rooms } = useSelector((state) => state.rooms);
 
   useEffect(() => {
-    dispatch(getAllRooms());
+    getAllRooms(dispatch);
   }, [location, dispatch]);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
   return (
     <div className="r">
       <div className="rooms">

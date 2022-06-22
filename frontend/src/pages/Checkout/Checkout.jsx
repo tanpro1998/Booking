@@ -1,5 +1,4 @@
 import React from "react";
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "./checkout.scss";
@@ -7,7 +6,7 @@ import { TextField } from "@material-ui/core";
 import { Button } from "@material-ui/core";
 import { MenuItem } from "@material-ui/core";
 import { useState } from "react";
-import { createBooking } from "../../Redux/API";
+import { createBooking } from "../../redux/callAPI";
 
 const card = [
   {
@@ -44,7 +43,7 @@ const Checkout = () => {
     confirmEmail: "",
     phone: "",
     paymentType: "VISA",
-    cardNum: "0112358132134558",
+    cardNum: "xxxxxxxxxxxx1255",
   });
 
   const handleSubmit = (e) => {
@@ -72,7 +71,8 @@ const Checkout = () => {
       return setError(true);
     }
 
-    dispatch(createBooking({ formData, details }));
+    // dispatch(createBooking({ formData, details }));
+    createBooking({ formData, details }, dispatch);
     // create a booking for the guest
     navigate("/booking/success");
   };
@@ -81,9 +81,6 @@ const Checkout = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
   return (
     <div className="r">
       <div className="rooms">

@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 import { addDays } from "date-fns";
 import { useDispatch } from "react-redux";
-import { getAllAvailable, BookingDetails } from "../../Redux/API";
+import { getAllAvailable, bookingDetails } from "../../redux/callAPI";
 import { TextField } from "@material-ui/core";
 import { DateRangePicker, LocalizationProvider } from "@material-ui/lab";
 import AdapterDateFns from "@material-ui/lab/AdapterDateFns";
@@ -44,8 +44,10 @@ const BookingWidget = () => {
     if (location.pathname !== "/booking") {
       navigate("/booking");
     }
-    dispatch(getAllAvailable({ adults, children, dates }));
-    dispatch(BookingDetails({ adults, children, dates }));
+    // dispatch(getAllAvailable({ adults, children, dates }));
+    getAllAvailable({ adults, children, dates }, dispatch);
+    // dispatch(BookingDetails({ adults, children, dates }));
+    bookingDetails({ adults, children, dates }, dispatch);
   };
 
   return (

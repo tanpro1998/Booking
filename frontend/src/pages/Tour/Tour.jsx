@@ -1,15 +1,8 @@
-import React, { useEffect} from "react";
-// import { useLocation } from "react-router-dom";
+import React from "react";
 import BookingWidget from "../../components/Booking/BookingWidget";
 import "./tour.scss";
 
 const Tour = () => {
-  // const location = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <div className="r">
       <div className="rooms">

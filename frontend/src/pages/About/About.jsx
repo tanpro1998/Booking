@@ -1,12 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import BookingWidget from "../../components/Booking/BookingWidget";
 import "./about.scss";
 
 const About = () => {
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+
   return (
     <div className="r">
       <div className="rooms">

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "./available.scss";
 import { displayIcon } from "../../Icons/Icons";
-import { RoomDetails } from "../../Redux/API";
+import { roomDetails } from "../../redux/callAPI";
 
 const Available = () => {
   const dispatch = useDispatch();
@@ -17,7 +17,8 @@ const Available = () => {
     const totalNights = Math.round(rawDates / (1000 * 3600 * 24));
     const totalPrice = totalNights * price;
 
-    dispatch(RoomDetails({ title, price, totalNights, totalPrice }));
+    // dispatch(RoomDetails({ title, price, totalNights, totalPrice }));
+    roomDetails({ title, price, totalNights, totalPrice }, dispatch);
     navigate("/booking/checkout");
   };
   const rawDates = details.dates[1].getTime() - details.dates[0].getTime();

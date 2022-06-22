@@ -27,7 +27,6 @@ const About = () => {
             pearls, Phu Quoc offers both luxury and local life, with clean water
             by day and clear skies at night.
           </p>
-          {/* <h2>RESORT OPEN</h2> */}
           <Link to="/rooms">
             <button className="btn" style={{cursor: "pointer"}}>Discover More</button>
           </Link>

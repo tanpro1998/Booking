@@ -43,6 +43,20 @@
       text-align: center;
       margin: 5rem auto;
       max-width: 1440px;
+
+      @include tablet {
+        margin-top: 8rem;
+      }
+
+      @include mobile {
+        margin-top: 8rem;
+      }
+
+      p {
+        @include mobile {
+          font-size: 24px;
+        }
+      }
     }
 
     .room {
@@ -155,6 +169,11 @@
         flex: 1 0 40%;
         padding: 2rem;
         background-color: $lightgray-bg;
+
+        @include mobile {
+          width: 100%;
+          margin: 2rem auto;
+        }
 
         .button {
           background-color: transparent;

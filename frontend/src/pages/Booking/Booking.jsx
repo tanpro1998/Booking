@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BookingWidget from "../../components/Booking/BookingWidget";
 import "./booking.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { getSingleBooking } from "../../Redux/API";
+import { getSingleBooking } from "../../redux/callAPI";
 import Available from "../../components/Available/Available";
 
 const Booking = () => {
@@ -19,10 +19,6 @@ const Booking = () => {
 
   const [error, setError] = useState("");
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -36,7 +32,7 @@ const Booking = () => {
       return setError("Only Fill out ONE of these fields");
     }
 
-    dispatch(getSingleBooking(formData));
+    getSingleBooking(formData, dispatch);
     navigate("/booking/existing");
   };
   return (

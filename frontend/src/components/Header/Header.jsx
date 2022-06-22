@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./header.scss";
-import jsCookie from "js-cookie";
 import {
   faBed,
   faPlane,
@@ -9,6 +8,7 @@ import {
   faCircleInfo,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { userLogout } from "../../redux/callAPI";
 
 const Header = () => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -26,6 +26,10 @@ const Header = () => {
     window.addEventListener("scroll", scrollEvent);
     return () => window.removeEventListener("scroll", scrollEvent);
   }, []);
+
+  const handleLogout = () => {
+    userLogout();
+  };
 
   return (
     <div className={`header ${header}`}>
@@ -68,15 +72,7 @@ const Header = () => {
         <div className="headerItem">
           {user ? (
             <>
-              <button
-                className="headerButton"
-                onClick={() => {
-                  localStorage.clear();
-                  jsCookie.remove("access");
-                  jsCookie.remove("refresh");
-                  window.location.reload();
-                }}
-              >
+              <button className="headerButton" onClick={handleLogout}>
                 Logout
               </button>
               <span className="headerUser">{user.name}</span>

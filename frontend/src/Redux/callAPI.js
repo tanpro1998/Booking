@@ -1,43 +1,51 @@
 import { message } from "antd";
-import { roomRequest } from "../Utils/axiosInstance";
+import { roomRequest } from "../utils/axiosInstance";
 import jsCookie from "js-cookie";
-import { allRooms, oneRoom } from "../Redux/reducers/roomSlice";
+import { allRooms } from "./reducers/roomSlice";
 import { getBooking, delBooking } from "./reducers/existingSlice";
 import { availableBooking } from "./reducers/bookingSlice";
 import { detailBooking, detailRoom } from "./reducers/detailSlice";
 import { confirm } from "./reducers/confirmSlice";
 
-export const userRegister = (reqObj) => async () => {
+export const userRegister = async (reqObj, navigate) => {
   try {
     await roomRequest.post("/auth/register", reqObj);
     message.success("Register Success");
     setTimeout(() => {
-      window.location.href = "/login";
-    }, 500);
+      navigate("/login");
+    }, 1000);
   } catch (err) {
     console.log(err);
     message.error("Something went wrong");
   }
 };
 
-export const userLogin = (reqObj) => async () => {
+export const userLogin = async (reqObj) => {
   try {
-    const res = await roomRequest.post("/auth/login", reqObj);
-
+    const res = await roomRequest.post("/auth/login", reqObj, {
+      withCredentials: true,
+    });
     localStorage.setItem("user", JSON.stringify(res.data));
-    jsCookie.set("access", res.data.accessToken);
-    jsCookie.set("refresh", res.data.refreshToken);
     message.success("Login Success");
     setTimeout(() => {
       window.location.href = "/";
-    }, 500);
+    }, 2000);
   } catch (err) {
     console.log(err);
     message.error("Wrong username or password");
   }
 };
 
-export const getAllRooms = () => async (dispatch) => {
+export const userLogout = async () => {
+  localStorage.clear();
+  jsCookie.remove("access");
+  jsCookie.remove("refresh");
+  setTimeout(() => {
+    window.location.reload();
+  }, 500);
+};
+
+export const getAllRooms = async (dispatch) => {
   try {
     const res = await roomRequest.get("/rooms");
     dispatch(allRooms(res.data));
@@ -45,17 +53,8 @@ export const getAllRooms = () => async (dispatch) => {
     console.log(err);
   }
 };
-
-// export const getOneRooms = (url) => async (dispatch) => {
-//   try {
-//     const res = await roomRequest.get(`/rooms/${url}`);
-//     dispatch(oneRoom(res.data));
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
 // Lấy thông tin booking
-export const getSingleBooking = (id) => async (dispatch) => {
+export const getSingleBooking = async (id, dispatch) => {
   try {
     const res = await roomRequest.post("/bookings", id);
     dispatch(getBooking(res.data));
@@ -64,7 +63,7 @@ export const getSingleBooking = (id) => async (dispatch) => {
   }
 };
 
-export const RoomDetails = (data) => async (dispatch) => {
+export const roomDetails = async (data, dispatch) => {
   try {
     dispatch(detailRoom(data));
   } catch (err) {
@@ -72,14 +71,14 @@ export const RoomDetails = (data) => async (dispatch) => {
   }
 };
 
-export const BookingDetails = (data) => async (dispatch) => {
+export const bookingDetails = async (data, dispatch) => {
   try {
     dispatch(detailBooking(data));
   } catch (err) {
     console.log(err);
   }
 };
-export const getAllAvailable = (params) => async (dispatch) => {
+export const getAllAvailable = async (params, dispatch) => {
   try {
     const res = await roomRequest.post("/bookings/available", params);
     dispatch(availableBooking(res.data));
@@ -88,7 +87,7 @@ export const getAllAvailable = (params) => async (dispatch) => {
   }
 };
 
-export const createBooking = (details) => async (dispatch) => {
+export const createBooking = async (details, dispatch) => {
   try {
     const newBooking = {
       ...details.formData,
@@ -103,7 +102,7 @@ export const createBooking = (details) => async (dispatch) => {
   }
 };
 
-export const deleteBooking = (id) => async (dispatch) => {
+export const deleteBooking = async (id, dispatch) => {
   try {
     await roomRequest.post("/bookings/delete", id);
     dispatch(delBooking(id));

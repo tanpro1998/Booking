@@ -11,10 +11,11 @@
 
   @include tablet {
     padding: 0 2rem;
+    margin-top: 8rem;
   }
 
   @include mobile {
-    display: none;
+    flex-direction: column;
   }
 
   .featuresItem {

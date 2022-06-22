@@ -1,13 +1,11 @@
 import React from "react";
 import "../Register/register.scss";
 import { Form, Input, Button } from "antd";
-import { useDispatch } from "react-redux";
-import { userLogin } from "../../Redux/API";
+import { userLogin } from "../../redux/callAPI";
 
 const Login = () => {
-  const dispatch = useDispatch();
-  const onFinish = (values) => {
-    dispatch(userLogin(values));
+  const onFinish = async (values) => {
+    userLogin(values);
   };
 
   const onFinishFailed = (errorInfo) => {

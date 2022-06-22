@@ -14,19 +14,16 @@ import Room from "./pages/Room/Room";
 import RoomItem from "./pages/Room/RoomItem";
 import Success from "./pages/Success/Success";
 import Tour from "./pages/Tour/Tour";
-import "./app.scss"
+import "./app.scss";
+import ScrollToTop from "./components/Scroll/ScrollToTop";
 function App() {
   const currentUser = JSON.parse(localStorage.getItem("user"));
   return (
     <BrowserRouter>
-      <>
+      <ScrollToTop>
         <Header />
         <Routes>
-          {currentUser ? (
-            <Route path="/" element={<Home />} />
-          ) : (
-            <Route path="/" element={<Navigate to="/login" />} />
-          )}
+          <Route path="/" element={<Home />} />
           <Route path="/rooms" element={<Room />} />
           <Route path="/rooms/:roomSlug" element={<RoomItem />} />
           <Route path="/dining" element={<Dining />} />
@@ -35,7 +32,11 @@ function App() {
           <Route path="/booking" element={<Booking />} />
           <Route path="/booking/available" element={<Available />} />
           <Route path="/booking/existing" element={<Existing />} />
-          <Route path="/booking/checkout" element={<Checkout />} />
+          {currentUser ? (
+            <Route path="/booking/checkout" element={<Checkout />} />
+          ) : (
+            <Route path="*" element={<Navigate to="/login" />} />
+          )}
           <Route path="/booking/success" element={<Success />} />
           <Route path="/register" element={<Register />} />
           {!currentUser ? (
@@ -45,7 +46,7 @@ function App() {
           )}
         </Routes>
         <Footer />
-      </>
+      </ScrollToTop>
     </BrowserRouter>
   );
 }

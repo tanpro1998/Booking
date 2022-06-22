@@ -4,8 +4,10 @@ import bookingReducer from "./reducers/bookingSlice";
 import detailReducer from "./reducers/detailSlice";
 import existingReducer from "./reducers/existingSlice";
 import confirmReducer from "./reducers/confirmSlice";
+import authReducer from "./reducers/authSlice";
 
 const rootReducer = combineReducers({
+  auth: authReducer,
   rooms: roomReducer,
   bookings: bookingReducer,
   details: detailReducer,

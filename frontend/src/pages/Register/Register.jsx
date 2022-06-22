@@ -1,13 +1,13 @@
 import React from "react";
 import "./register.scss";
 import { Form, Input, Button } from "antd";
-import { useDispatch } from "react-redux";
-import { userRegister } from "../../Redux/API";
+import { userRegister } from "../../redux/callAPI";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const onFinish = (values) => {
-    dispatch(userRegister(values));
+    userRegister(values, navigate);
   };
 
   const onFinishFailed = (errorInfo) => {

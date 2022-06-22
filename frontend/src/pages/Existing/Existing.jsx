@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { deleteBooking } from "../../Redux/API";
+import { deleteBooking } from "../../redux/callAPI";
 import "./existing.scss";
 
 const Existing = () => {
@@ -13,13 +13,14 @@ const Existing = () => {
   const [loading, setLoading] = useState(true);
 
   const handleDelete = (id) => {
-    dispatch(deleteBooking({ id }));
+    deleteBooking({ id }, dispatch);
   };
   useEffect(() => {
+    console.log(" i was triggered");
     setTimeout(() => {
       setLoading(false);
     }, 2000);
-  }, [dispatch]);
+  }, []);
   return (
     <div className="r">
       <div className="rooms">
@@ -91,7 +92,7 @@ const Existing = () => {
                   className="delete-btn"
                   onClick={() => [
                     handleDelete(inf.confirmation),
-                    window.location.href = "/booking",
+                    window.location.reload(),
                   ]}
                 >
                   DELETE
