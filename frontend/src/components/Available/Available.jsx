@@ -17,7 +17,6 @@ const Available = () => {
     const totalNights = Math.round(rawDates / (1000 * 3600 * 24));
     const totalPrice = totalNights * price;
 
-    // dispatch(RoomDetails({ title, price, totalNights, totalPrice }));
     roomDetails({ title, price, totalNights, totalPrice }, dispatch);
     navigate("/booking/checkout");
   };

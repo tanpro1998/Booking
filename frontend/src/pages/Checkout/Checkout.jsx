@@ -30,6 +30,7 @@ const card = [
 const Checkout = () => {
   const { room } = useSelector((state) => state.details);
   const details = useSelector((state) => state.details);
+  console.log(details);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -71,7 +72,6 @@ const Checkout = () => {
       return setError(true);
     }
 
-    // dispatch(createBooking({ formData, details }));
     createBooking({ formData, details }, dispatch);
     // create a booking for the guest
     navigate("/booking/success");

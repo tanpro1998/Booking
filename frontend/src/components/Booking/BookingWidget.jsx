@@ -44,9 +44,7 @@ const BookingWidget = () => {
     if (location.pathname !== "/booking") {
       navigate("/booking");
     }
-    // dispatch(getAllAvailable({ adults, children, dates }));
     getAllAvailable({ adults, children, dates }, dispatch);
-    // dispatch(BookingDetails({ adults, children, dates }));
     bookingDetails({ adults, children, dates }, dispatch);
   };
 
