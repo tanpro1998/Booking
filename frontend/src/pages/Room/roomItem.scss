@@ -45,7 +45,6 @@
       @include tablet {
         margin-top: 8rem;
       }
-
     }
 
     .rIInfo {
@@ -54,7 +53,7 @@
       margin: 3rem auto 0 auto;
 
       @include tablet {
-        padding: 2rem ;
+        padding: 2rem;
       }
 
       .left {
@@ -95,6 +94,17 @@
                 font-size: 2rem;
                 border: 1px solid $lightblue-bg;
                 color: $text-second-color;
+                transition: all 0.3s ease-out;
+
+                &:hover {
+                  transform: scale(1.2);
+                }
+
+                &:last-child {
+                  &:hover {
+                    transform: scale(1);
+                  }
+                }
               }
 
               .itemShow {
