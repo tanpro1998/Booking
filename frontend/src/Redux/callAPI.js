@@ -110,3 +110,5 @@ export const deleteBooking = async (id, dispatch) => {
     console.log(error);
   }
 };
+
+// Ok
