@@ -1,0 +1,51 @@
+@import "../../scss/variables";
+
+.mail {
+  width: 100%;
+  height: 300px;
+  background-color: $main-bg;
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .mailTitle {
+    color: $text-white;
+  }
+
+  .mailDesc {
+    color: $text-white;
+  }
+
+  .mailForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    .mailInput {
+      width: 300px;
+      height: 40px;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+    }
+
+    .mailButton {
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background-color: #59a8fc;
+      color: $text-white;
+    }
+  }
+
+  .subscribe {
+    margin: 2rem 2rem 2rem 0;
+    color: $text-white;
+  }
+}

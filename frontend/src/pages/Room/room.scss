@@ -1,0 +1,211 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.r {
+  .rooms {
+    img {
+      width: 100%;
+      height: 75vh;
+    }
+
+    .header-main {
+      height: 75vh;
+      position: relative;
+
+      .header-img {
+        background-size: cover;
+        background-position: center;
+      }
+
+      .header-content {
+        position: absolute;
+        top: 20%;
+        width: 100%;
+        color: $text-white;
+        text-align: center;
+
+        .header-title {
+          color: $text-white;
+          font-size: 50px;
+        }
+
+        .header-p {
+          font-size: 30px;
+
+          @include tablet {
+            padding: 0 4rem;
+          }
+        }
+      }
+    }
+
+    .header-desc {
+      text-align: center;
+      margin: 5rem auto;
+      max-width: 1440px;
+
+      @include tablet {
+        margin-top: 8rem;
+      }
+
+      @include mobile {
+        margin-top: 8rem;
+      }
+
+      p {
+        @include mobile {
+          font-size: 24px;
+        }
+      }
+    }
+
+    .room {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 3rem auto;
+      padding: 0 4rem;
+
+      @include tablet {
+        flex-direction: column;
+      }
+
+      .loader {
+        margin: auto;
+
+        .lds-roller {
+          display: inline-block;
+          position: relative;
+          width: 80px;
+          height: 80px;
+        }
+
+        .lds-roller div {
+          animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+          transform-origin: 40px 40px;
+        }
+
+        .lds-roller div:after {
+          content: " ";
+          display: block;
+          position: absolute;
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: $black-bg;
+          margin: -4px 0 0 -4px;
+        }
+        .lds-roller div:nth-child(1) {
+          animation-delay: -0.036s;
+        }
+        .lds-roller div:nth-child(1):after {
+          top: 63px;
+          left: 63px;
+        }
+        .lds-roller div:nth-child(2) {
+          animation-delay: -0.072s;
+        }
+        .lds-roller div:nth-child(2):after {
+          top: 68px;
+          left: 56px;
+        }
+        .lds-roller div:nth-child(3) {
+          animation-delay: -0.108s;
+        }
+        .lds-roller div:nth-child(3):after {
+          top: 71px;
+          left: 48px;
+        }
+        .lds-roller div:nth-child(4) {
+          animation-delay: -0.144s;
+        }
+        .lds-roller div:nth-child(4):after {
+          top: 72px;
+          left: 40px;
+        }
+        .lds-roller div:nth-child(5) {
+          animation-delay: -0.18s;
+        }
+        .lds-roller div:nth-child(5):after {
+          top: 71px;
+          left: 32px;
+        }
+        .lds-roller div:nth-child(6) {
+          animation-delay: -0.216s;
+        }
+        .lds-roller div:nth-child(6):after {
+          top: 68px;
+          left: 24px;
+        }
+        .lds-roller div:nth-child(7) {
+          animation-delay: -0.252s;
+        }
+        .lds-roller div:nth-child(7):after {
+          top: 63px;
+          left: 17px;
+        }
+        .lds-roller div:nth-child(8) {
+          animation-delay: -0.288s;
+        }
+        .lds-roller div:nth-child(8):after {
+          top: 56px;
+          left: 12px;
+        }
+      }
+
+      @keyframes lds-roller {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .card {
+        display: flex;
+        margin: 2rem 2rem 0 2rem;
+        flex-direction: column-reverse;
+        flex: 1 0 40%;
+        padding: 2rem;
+        background-color: $lightgray-bg;
+
+        @include mobile {
+          width: 100%;
+          margin: 2rem auto;
+        }
+
+        .button {
+          background-color: transparent;
+          border: none;
+          border-bottom: 1px solid $btn-border-color;
+          cursor: pointer;
+        }
+
+        .room-title {
+          font-size: 2rem;
+          font-weight: lighter;
+        }
+
+        p {
+          margin: 1rem 0;
+          line-height: 1.5;
+        }
+
+        .room-img {
+          overflow: hidden;
+          max-width: 100%;
+          max-height: 80%;
+
+          @include tablet {
+            height: 50vh;
+          }
+
+          @include mobile {
+            height: 40vh;
+          }
+        }
+      }
+    }
+  }
+}

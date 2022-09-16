@@ -1,0 +1,127 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.header {
+  height: $header-height;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  top: 0;
+  transition: all 0.3s ease-out;
+
+  .hamburger-menu {
+    display: none;
+
+    @include mobile {
+      display: block;
+      margin-left: 2rem;
+      font-size: 1.5rem;
+      color: $text-white;
+      z-index: 999;
+    }
+  }
+
+  @include mobile {
+    height: 50px;
+  }
+
+  &:hover {
+    background-color: $main-bg;
+  }
+
+  .headerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1024px;
+
+    .logo {
+      font-size: 30px;
+      z-index: 999;
+      color: $text-white;
+
+      @include tablet {
+        font-size: 24px;
+        margin-left: 1rem;
+      }
+
+      @include mobile {
+        display: block;
+        margin-left: 20px;
+      }
+    }
+
+    .headerList {
+      display: flex;
+      gap: 40px;
+
+      @include tablet {
+        margin-left: -5rem;
+      }
+
+      @include mobile {
+        position: absolute;
+        top: 50px;
+        left: -100%;
+        background-color: $main-bg;
+        width: 100%;
+        box-shadow: 0px 21px 17px -20px #00000091;
+        transition: all ease 0.3s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 20px;
+
+        &.show-menu {
+          left: 80px !important;
+          transition: all ease 0.3s;
+        }
+      }
+
+      .headerListItem {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        color: $text-white;
+
+        &:hover {
+          color: black;
+        }
+      }
+    }
+
+    .headerButton {
+      margin-left: 20px;
+      padding: 5px 10px;
+      background-color: $white-bg;
+      border: none;
+      color: $main-color;
+      cursor: pointer;
+
+      @include tablet {
+        transform: translateX(-100px);
+      }
+    }
+
+    .headerUser {
+      margin-left: 10px;
+      color: $text-white;
+      font-size: 12px;
+      @include tablet {
+        display: none;
+      }
+    }
+  }
+}
+
+.scroll-color {
+  background-color: $main-bg;
+  color: $text-white;
+  z-index: 997;
+}

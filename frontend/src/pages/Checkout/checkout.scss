@@ -1,0 +1,82 @@
+@import "../../scss/variables";
+
+.header-desc {
+  font-size: 30px;
+}
+
+.room-info {
+  background-color: $lightblue-bg;
+  max-width: 1024px;
+  margin: 2rem auto;
+  padding: 2rem 10rem;
+  border: 2px solid black;
+
+  h1 {
+    font-size: 30px;
+    text-align: center;
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2rem;
+
+    h4 {
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    span {
+      font-size: 16px;
+    }
+
+    .total {
+      font-weight: bold;
+    }
+  }
+}
+
+.details {
+  max-width: 1024px;
+  margin: 2rem auto;
+
+  h1 {
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 2rem;
+  }
+
+  .error-msg {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    color: crimson;
+  }
+
+  form {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0 3rem;
+
+    .input {
+      flex-basis: 40%;
+      margin: 2rem 0;
+    }
+
+    .btnContainer {
+      margin: 2rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+
+      .button {
+        padding: 10px 15px;
+        border: 1px solid black;
+      }
+    }
+  }
+}

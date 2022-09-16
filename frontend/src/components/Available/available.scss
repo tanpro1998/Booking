@@ -1,0 +1,113 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.available {
+  display: flex;
+  flex-direction: column;
+  max-width: 1024px;
+  margin: auto;
+
+  .room-card {
+    display: flex;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    box-shadow: $box-shadow;
+    background-color: $lightblue-bg;
+
+    @include tablet {
+      margin: 2rem 2rem;
+    }
+
+    @include mobile {
+      flex-direction: column;
+    }
+
+    .card-img {
+      flex-basis: 30%;
+
+      img {
+        height: 100%;
+
+        // @include mobile {
+        //   max-height: 80%;
+        // }
+      }
+    }
+
+    .card-info {
+      flex-basis: 50%;
+      display: flex;
+      flex-direction: column;
+      padding: 0 1rem;
+      flex-wrap: wrap;
+      .location {
+        color: $text-second-color;
+        font-size: 14px;
+      }
+      .details {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        margin-left: 0;
+        div {
+          flex-basis: 50%;
+          line-height: 1.4;
+          label {
+            font-weight: bold;
+          }
+        }
+      }
+      .amenities {
+        margin-top: 2px;
+        label {
+          font-weight: bold;
+        }
+        ul {
+          display: flex;
+          gap: 5px;
+          list-style: none;
+          li {
+            margin-right: 6px;
+            i {
+              border: 1px solid white;
+              color: $text-second-color;
+              padding: 4px;
+            }
+          }
+        }
+      }
+    }
+    .card-price {
+      flex-basis: 20%;
+      text-align: end;
+      div {
+        label {
+          color: $text-second-color;
+          font-weight: bold;
+        }
+        h4 {
+          font-size: 2rem;
+        }
+      }
+      .btn {
+        margin-top: 1rem;
+        width: 80%;
+        padding: 5px;
+        cursor: pointer;
+        background-color: $main-bg;
+        border: none;
+        font-size: 14px;
+        font-weight: bold;
+        color: $text-white;
+
+        @include mobile {
+          width: 100%;
+        }
+      }
+    }
+  }
+  .err-msg {
+    color: red;
+    text-align: center;
+  }
+}

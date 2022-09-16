@@ -1,0 +1,40 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 400px;
+
+  .navbarContainer {
+    width: 100%;
+    max-width: 1024px;
+    margin: 20px 0 100px 0;
+
+    .navbarBody {
+      margin-top: 100px;
+
+      .navbarTitle {
+        color: $text-white;
+        font-size: 40px;
+        text-align: center;
+      }
+
+      .navbarDesc {
+        margin: 20px 0;
+        color: $text-white;
+        font-size: 16px;
+        line-height: 1.6;
+        @include tablet {
+          text-align: center;
+          margin: 0 5rem;
+        }
+      }
+    }
+  }
+
+  .navbarContainer.list {
+    margin: 20px 0 0 0;
+  }
+}
