@@ -13,6 +13,10 @@
     padding: 2rem;
   }
 
+  @include mobile {
+    flex-direction: column;
+  }
+
   .bg-light {
     position: absolute;
     top: -30px;
