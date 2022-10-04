@@ -1,11 +1,12 @@
 import React from "react";
+import BookingWidget from "../../components/Booking/BookingWidget";
 import "../Room/roomItem.scss";
-import "./dining.scss"
+import "./dining.scss";
 
 const Dining = () => {
   return (
     <div className="r">
-      <div className="rI">
+      <div className="rooms">
         <header className="header-main">
           <img
             src={"/image/dining/dining-header1.jpg"}
@@ -16,6 +17,7 @@ const Dining = () => {
             <h2 className="header-title">Restaurants</h2>
             <p className="header-p">Discover Phu Quoc's best dining</p>
           </div>
+          <BookingWidget />
         </header>
         <section className="header-desc">
           <h1 className="alt-font">Authentic Viet Cuisine</h1>
@@ -35,7 +37,7 @@ const Dining = () => {
             </div>
           </div>
           <div className="descRight">
-            <img src="/image/dining/dining-chef.jpg" alt="" className="chef"/>
+            <img src="/image/dining/dining-chef.jpg" alt="" className="chef" />
             <article>
               <h2 className="alt-font">World Class Culinary Team</h2>
               <p>

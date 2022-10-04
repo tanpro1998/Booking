@@ -71,7 +71,8 @@
 
     img {
       @include tablet {
-        height: 80%;
+        width: 350px;
+        height: 50%;
       }
     }
   }

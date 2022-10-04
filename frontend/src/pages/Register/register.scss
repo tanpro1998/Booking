@@ -1,4 +1,5 @@
 @import "../../scss/variables";
+@import "../../scss/mixins";
 
 .register {
   display: flex;
@@ -19,8 +20,10 @@
   .registerForm {
     width: 300px;
 
-    .button {
-      width: 50%;
+    .buttonContainer {
+      @include mobile {
+        margin: 0 auto;
+      }
     }
   }
 }

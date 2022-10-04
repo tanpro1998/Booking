@@ -75,9 +75,11 @@ const Register = () => {
             span: 16,
           }}
         >
-          <Button type="primary" htmlType="submit" className="button">
-            Submit
-          </Button>
+          <div className="buttonContainer">
+            <Button type="primary" htmlType="submit" className="button">
+              Submit
+            </Button>
+          </div>
         </Form.Item>
       </Form>
     </div>

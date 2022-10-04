@@ -10,9 +10,8 @@
   max-width: 1440px;
 
   @include tablet {
-    padding: 0 2rem;
-    width: 80%;
     flex-direction: column;
+    width: 80%;
   }
 
   @include mobile {
