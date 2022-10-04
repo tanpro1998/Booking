@@ -3,8 +3,6 @@ import BookingWidget from "../../components/Booking/BookingWidget";
 import "./about.scss";
 
 const About = () => {
-
-
   return (
     <div className="r">
       <div className="rooms">
